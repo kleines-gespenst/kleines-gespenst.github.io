@@ -233,6 +233,12 @@ section a:hover {
     font-size: 1rem;
 }
 
+.publication-item .authors .me {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
 .publication-item .venue {
     color: var(--text-light);
     font-size: 0.95rem;
