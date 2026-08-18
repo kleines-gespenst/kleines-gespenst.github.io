@@ -119,6 +119,12 @@ nav ul a.active {
     line-height: 1.15;
 }
 
+.pronunciation {
+    margin-top: 0.25rem;
+    font-size: 0.84rem;
+    color: var(--text-light);
+}
+
 .affiliation {
     margin-top: 0.3rem;
     color: var(--text-mid);
