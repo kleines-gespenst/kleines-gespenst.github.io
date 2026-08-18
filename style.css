@@ -293,6 +293,10 @@ h3.group:first-of-type {
     margin-bottom: 0.7rem;
 }
 
+.publication-item .venue em {
+    font-style: italic;
+}
+
 .publication-item .finding {
     font-size: 0.96rem;
     color: var(--text-mid);
