@@ -25,7 +25,7 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    document.querySelectorAll('nav a').forEach(link => {
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
