@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Order Preferences in LMs | Varvara Arzt</title>
+    <meta name="description" content="Left-Branching Transformers Excel at Right-Branching Languages: Data Shapes Word Order Preferences in Language Models. Varvara Arzt, Allan Hanbury, Terra Blevins. EMNLP 2026 (oral).">
+    <link rel="canonical" href="https://kleines-gespenst.github.io/word-order.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Left-Branching Transformers Excel at Right-Branching Languages">
+    <meta property="og:description" content="Data shapes word order preferences in language models. EMNLP 2026 (oral).">
+    <meta property="og:url" content="https://kleines-gespenst.github.io/word-order.html">
+    <meta property="og:image" content="https://kleines-gespenst.github.io/img/word-order/artificial-5mb.webp">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@wienergespenst">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231a1a1a'/><text x='32' y='44' font-family='Helvetica,Arial' font-size='32' font-weight='600' fill='%23fff' text-anchor='middle'>VA</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a class="nav-name" href="./">Varvara Arzt</a>
+            <ul>
+                <li><a href="./#about">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="cv.pdf" target="_blank">CV</a></li>
+                <li><a href="./#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="project">
+        <header class="project-head">
+            <p class="project-venue">EMNLP 2026 &middot; Oral</p>
+            <h1>Left-Branching Transformers Excel at Right-Branching Languages</h1>
+            <p class="project-subtitle">Data Shapes Word Order Preferences in Language Models</p>
+            <p class="project-authors"><a href="./">Varvara Arzt</a>, <a href="https://informatics.tuwien.ac.at/people/allan-hanbury" target="_blank">Allan Hanbury</a>, and <a href="https://blvns.github.io" target="_blank">Terra Blevins</a></p>
+            <p class="project-affil">TU Wien &middot; Northeastern University</p>
+            <p class="project-buttons">
+                <a class="button" href="https://arxiv.org/abs/2608.15129" target="_blank">Paper</a>
+                <a class="button" href="https://github.com/kleines-gespenst/word-order-preferences" target="_blank">Code</a>
+                <a class="button" href="slides/arzt-emnlp2026-word-order.pdf" target="_blank">Slides</a>
+            </p>
+            <p class="project-talk">Oral presentation: 25 October 2026, 11:00&ndash;12:30, Session 2, room G15&ndash;16.</p>
+        </header>
+
+        <section>
+            <h2>In short</h2>
+            <p>Do language models handle all word orders equally well, and if not, do their preferences come from the architecture or from the data? We train the same GPT-2 architecture on 192 artificial languages that differ only in word order, and on more than 70 typologically diverse natural languages at matched data sizes. The two settings point in <strong>opposite directions</strong>: the architecture prefers left-branching, but with enough data, better-resourced right-branching SVO languages become easiest.</p>
+        </section>
+
+        <section>
+            <h2>Results</h2>
+
+            <figure class="result">
+                <p class="result-step">1 &middot; What languages do</p>
+                <img src="img/word-order/attested.webp" alt="Stacked bar chart of 526 natural languages by number of right-branching switches, from 0R/5L to 5R/0L. Languages cluster at both ends: 59 and 65 mostly SOV languages at the left-branching end (e.g. Japanese), 99 and 257 mostly SVO and VSO languages at the right-branching end (e.g. English, Spanish)." width="1400" height="727" loading="lazy">
+                <figcaption><strong>Natural languages cluster at both extremes.</strong> Each language gets a base order plus five left/right switches (complement clause, complementiser, adposition, adjective, relative clause); the x-axis counts the right-branching ones. SOV languages tend to be consistently left-branching like Japanese, SVO languages consistently right-branching like English. Labels from WALS, Grambank and APiCS.</figcaption>
+            </figure>
+
+            <figure class="result">
+                <p class="result-step">2 &middot; What LMs prefer on artificial languages</p>
+                <img src="img/word-order/artificial-5mb.webp" alt="Line chart of mean perplexity for GPT-2 trained on 5 MB of artificial languages. For all six base orders, perplexity rises from fully left-branching (0R/5L) towards right-branching (5R/0L); SOV is lowest throughout, VSO highest." width="1400" height="761" loading="lazy">
+                <figcaption><strong>Left-branching is easiest, whatever the base order.</strong> Across 192 artificial languages (6 base orders &times; 2<sup>5</sup> switch settings) with identical content, perplexity rises with every right-branching switch. The easiest configuration for each base order has no natural counterpart, and prenominal relative clauses help most, against typology. GPT-2 small, 5 MB, mean over 10 runs (lower is easier).</figcaption>
+            </figure>
+
+            <figure class="result">
+                <p class="result-step">3 &middot; What LMs prefer on natural languages</p>
+                <div class="figure-pair">
+                    <img src="img/word-order/natural-5mb.webp" alt="Mean bits per English character for Goldfish models trained on 5 MB, 62 languages. SOV and SVO lines overlap in range around 2.1 to 2.3; no clear preference." width="1400" height="612" loading="lazy">
+                    <img src="img/word-order/natural-1gb.webp" alt="Same 62 languages with Goldfish models trained on 1000 MB. SVO languages sit around 1.33 bits per character, clearly below SOV languages at 1.43 to 1.61." width="1400" height="718" loading="lazy">
+                </div>
+                <figcaption><strong>With more data, right-branching SVO becomes easiest.</strong> At 5 MB, monolingual Goldfish models show no preference (Cliff&rsquo;s &delta; = 0.00). On the same 62 languages at 1 GB, SVO is clearly easier (&delta; = &minus;0.76, p &lt; .001): SOV is about 10% harder to compress, although it is the most frequent order worldwide. The gap is not explained by script, morphology or data composition; language resourcedness accounts for about 20% of it. Multilingual XGLM and mGPT show the same SVO advantage. FLORES-200, mean bits per English character (lower is easier).</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Takeaways</h2>
+            <ol class="takeaways">
+                <li><strong>Systematic, but not human-like.</strong> On artificial languages, LMs prefer left-branching regardless of base order, against the word order correlations found in natural languages.</li>
+                <li><strong>Data overrides the architectural bias.</strong> On natural languages at scale, better-resourced SVO languages become easiest, in monolingual and multilingual models.</li>
+                <li><strong>Artificial and natural results go in opposite directions.</strong> SVO is the hardest base order on artificial languages and the easiest on natural ones.</li>
+            </ol>
+            <p class="project-note">Even monolingual models trained on just 1 GB develop the SVO preference; frontier models, with far larger resource gaps between languages, likely amplify it. This is a precondition for <em>silent typological homogenisation</em>: languages with flexible word order drifting towards the dominant ones.</p>
+        </section>
+
+        <section>
+            <h2>Citation</h2>
+            <div class="bibtex">
+                <button type="button" class="copy-button" data-copy="bibtex-text">Copy</button>
+<pre id="bibtex-text">@inproceedings{arzt2026leftbranching,
+  title     = {Left-Branching Transformers Excel at Right-Branching Languages:
+               Data Shapes Word Order Preferences in Language Models},
+  author    = {Arzt, Varvara and Hanbury, Allan and Blevins, Terra},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods
+               in Natural Language Processing},
+  year      = {2026}
+}</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Varvara Arzt &middot; Vienna</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

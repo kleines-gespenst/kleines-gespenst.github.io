@@ -32,3 +32,14 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Copy-to-clipboard buttons (e.g. BibTeX)
+document.querySelectorAll('.copy-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const text = document.getElementById(button.dataset.copy).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            button.textContent = 'Copied';
+            setTimeout(() => { button.textContent = 'Copy'; }, 1500);
+        });
+    });
+});
