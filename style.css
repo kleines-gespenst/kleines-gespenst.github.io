@@ -192,6 +192,25 @@ section p {
     color: var(--text);
 }
 
+.news-list li {
+    display: flex;
+    gap: 1rem;
+}
+
+.news-date {
+    flex: 0 0 4.75rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    padding-top: 0.1rem;
+}
+
+@media (max-width: 640px) {
+    .news-list li {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
 /* Research interests strip */
 .interests {
     margin-top: 0.9rem;
