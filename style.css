@@ -521,19 +521,6 @@ footer {
     color: var(--text);
 }
 
-.setup-list {
-    margin: 0 0 1rem 1.3rem;
-}
-
-.setup-list li {
-    margin-bottom: 0.5rem;
-    color: var(--text-mid);
-}
-
-.setup-list li strong {
-    color: var(--text);
-}
-
 .takeaways {
     padding-left: 1.3rem;
 }
