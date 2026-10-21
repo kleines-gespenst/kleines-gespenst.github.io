@@ -67,8 +67,11 @@
 
             <figure class="result">
                 <p class="result-step">2 &middot; What LMs prefer on artificial languages</p>
-                <img src="img/word-order/artificial-5mb.webp" alt="Line chart of mean perplexity for GPT-2 trained on 5 MB of artificial languages. For all six base orders, perplexity rises from fully left-branching (0R/5L) towards right-branching (5R/0L); SOV is lowest throughout, VSO highest." width="1400" height="761" loading="lazy">
-                <figcaption><strong>Left-branching is easiest for all six base word orders</strong>, at both 5 and 10 MB. Relative clauses matter most: models trained on artificial languages prefer prenominal relative clauses, although postnominal ones are about four times more common in natural languages. The easiest configuration for each base word order has no natural counterpart.</figcaption>
+                <div class="figure-pair">
+                    <img src="img/word-order/artificial-5mb.webp" alt="Line chart of mean perplexity for GPT-2 trained on 5 MB of artificial languages. For all six base orders, perplexity rises from fully left-branching (0R/5L) towards right-branching (5R/0L); SOV is lowest throughout, VSO highest." width="1400" height="761" loading="lazy">
+                    <img src="img/word-order/artificial-10mb.webp" alt="Same setup with GPT-2 trained on 10 MB. Perplexity again rises from left- to right-branching for all six base orders; SVO is now the hardest base order throughout, OVS the easiest." width="1400" height="751" loading="lazy">
+                </div>
+                <figcaption><strong>Left-branching is easiest for all six base word orders</strong>, at both 5 and 10 MB. Relative clauses matter most: models trained on artificial languages prefer prenominal relative clauses, although postnominal ones are about four times more common in natural languages. The easiest configuration for each base word order has no natural counterpart. Base word order rankings are not stable: at 5 MB SOV is easiest, at 10 MB SVO is hardest.</figcaption>
             </figure>
 
             <figure class="result">
